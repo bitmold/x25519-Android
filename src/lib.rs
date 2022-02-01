@@ -28,7 +28,6 @@ pub unsafe extern "C" fn Java_org_torproject_android_X25519_generatePair(env: JN
 
 
     let pair = b32_priv + &b32_public;
-    println!("{:?}", pair);
 
     let cStr = CString::new(pair.to_owned()).unwrap().into_raw();
     let output = env.new_string(CString::from_raw(cStr).to_str().unwrap()).expect("couldn't create java string");
